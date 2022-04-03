@@ -75,4 +75,6 @@ public class Mainchar_Movement : MonoBehaviour
             yield return new WaitForSecondsRealtime((float)0.001);
         }
     }
+
+
 }
