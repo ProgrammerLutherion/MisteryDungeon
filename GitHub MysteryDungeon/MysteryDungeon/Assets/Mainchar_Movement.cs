@@ -8,30 +8,47 @@ public class Mainchar_Movement : MonoBehaviour
     int Zpos = -9;
     public SpriteRenderer spriteRenderer;
     public Collider2D Collider2D;
+    public LayerMask wallMask;
+    private BoxCollider2D bloquearriba, bloquederecha, bloqueabajo, bloqueizquierda;
     // Start is called before the first frame update
     void Start()
     {
-        
+        bloquearriba = this.transform.GetChild(0).GetComponent<BoxCollider2D>();
+        bloquederecha = this.transform.GetChild(1).GetComponent<BoxCollider2D>();
+        bloqueabajo = this.transform.GetChild(2).GetComponent<BoxCollider2D>();
+        bloqueizquierda = this.transform.GetChild(3).GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
-    {        
-        if (Input.GetKeyDown(KeyCode.A))
+    {
+        if (!bloqueizquierda.IsTouchingLayers(wallMask))
         {
-            StartCoroutine(moveXonA());                        
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                StartCoroutine(moveXonA());
+            }
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (!bloquederecha.IsTouchingLayers(wallMask))
         {
-            StartCoroutine(moveXonD());
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine(moveXonD());
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        if (!bloquearriba.IsTouchingLayers(wallMask))
         {
-            StartCoroutine(moveXonW());
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                StartCoroutine(moveXonW());
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        if (!bloqueabajo.IsTouchingLayers(wallMask))
         {
-            StartCoroutine(moveXonS());
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                StartCoroutine(moveXonS());
+            }
         }
     }
 

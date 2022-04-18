@@ -4,76 +4,31 @@ using UnityEngine;
 
 public class MainCharPueblo_Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    int Zpos = -9;
-    public SpriteRenderer spriteRenderer;
-    public Collider2D Collider2D;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    // Start is called before the first frame update  
+    public Animator animator;
+    public Rigidbody2D rb;
+    public float Movement_Speed = 5f;
+    Vector2 movement;
+ 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            StartCoroutine(moveXonA());
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            StartCoroutine(moveXonD());
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            StartCoroutine(moveXonW());
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartCoroutine(moveXonS());
-        }
+
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("horizontal", movement.x);
+        animator.SetFloat("vertical", movement.y);
+        animator.SetFloat("movement", movement.sqrMagnitude);
     }
 
-
-    IEnumerator moveXonA()
+    private void FixedUpdate()
     {
-        spriteRenderer.flipX = false;
-        for (int x = 0; x < 100; x++)
-        {
-            this.transform.position = new Vector3((float)(this.transform.position.x - 0.01), this.transform.position.y, Zpos);
-            yield return new WaitForSecondsRealtime((float)0.001);
-        }
+        rb.MovePosition(rb.position + movement.normalized * Movement_Speed * Time.fixedDeltaTime);
     }
 
-    IEnumerator moveXonD()
-    {
 
-        spriteRenderer.flipX = true;
 
-        for (int x = 0; x < 100; x++)
-        {
-            this.transform.position = new Vector3((float)(this.transform.position.x + 0.01), this.transform.position.y, Zpos);
-            yield return new WaitForSecondsRealtime((float)0.001);
-        }
-    }
-
-    IEnumerator moveXonW()
-    {
-        for (int x = 0; x < 100; x++)
-        {
-            this.transform.position = new Vector3(this.transform.position.x, (float)(this.transform.position.y + 0.01), Zpos);
-            yield return new WaitForSecondsRealtime((float)0.001);
-        }
-    }
-
-    IEnumerator moveXonS()
-    {
-        for (int x = 0; x < 100; x++)
-        {
-            this.transform.position = new Vector3(this.transform.position.x, (float)(this.transform.position.y - 0.01), Zpos);
-            yield return new WaitForSecondsRealtime((float)0.001);
-        }
-    }
 
 }
