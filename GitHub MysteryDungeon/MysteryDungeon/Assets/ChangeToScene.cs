@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ChangeToScene : MonoBehaviour
-{   
+{
+    public String SceneName; 
     private void OnTriggerEnter(Collider collision)
     {
         
@@ -15,9 +16,9 @@ public class ChangeToScene : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log(collision.gameObject.name);
-            DontDestroyOnLoad(collision.gameObject);
-            SceneManager.LoadScene("Pueblo");
+            /*Debug.Log(collision.gameObject.name);
+            DontDestroyOnLoad(collision.gameObject);       */         
+            SceneManager.LoadScene(SceneName,LoadSceneMode.Single);            
         }
     }
 }

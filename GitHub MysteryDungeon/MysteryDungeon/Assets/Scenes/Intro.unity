@@ -2242,6 +2242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c309b416ebccb74429b3f4fa6d17b9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneName: Intro
+  playerPos: {x: -8.5, y: -0.2}
   prefab_mainchar: {fileID: 2786360661689224381, guid: 7d558d9f62806a346a6916541414857e, type: 3}
   prefab_camera: {fileID: 2852426309676693004, guid: fee43c3da3baf484b9d8ee0203541837, type: 3}
 --- !u!4 &1890131410
@@ -2677,8 +2679,8 @@ GameObject:
   - component: {fileID: 2041899389}
   - component: {fileID: 2041899391}
   - component: {fileID: 2041899390}
-  - component: {fileID: 2041899392}
   - component: {fileID: 2041899393}
+  - component: {fileID: 2041899392}
   m_Layer: 6
   m_Name: Wall
   m_TagString: Scenario
@@ -3678,7 +3680,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3718,6 +3720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee2497ee4b30da4e96a5b710924cc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneName: Pueblo
 --- !u!50 &2074500698
 Rigidbody2D:
   serializedVersion: 4

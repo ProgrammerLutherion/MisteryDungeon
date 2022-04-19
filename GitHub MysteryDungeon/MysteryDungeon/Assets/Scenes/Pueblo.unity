@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 350488237}
   - component: {fileID: 350488236}
   m_Layer: 0
-  m_Name: atlas_48x_355
+  m_Name: Vendor_red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1436,6 +1436,8 @@ GameObject:
   - component: {fileID: 1566261148}
   - component: {fileID: 1566261150}
   - component: {fileID: 1566261149}
+  - component: {fileID: 1566261152}
+  - component: {fileID: 1566261151}
   m_Layer: 6
   m_Name: Pueblo_Wall
   m_TagString: Scenario
@@ -2425,6 +2427,43 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &1566261151
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566261147}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!19719996 &1566261152
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566261147}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &1596799564
 GameObject:
   m_ObjectHideFlags: 0
@@ -13381,7 +13420,7 @@ GameObject:
   - component: {fileID: 1746857590}
   - component: {fileID: 1746857589}
   m_Layer: 0
-  m_Name: atlas_48x_313
+  m_Name: Vendor_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13461,6 +13500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1890000810}
+  - component: {fileID: 1890000811}
   m_Layer: 0
   m_Name: Pueblo_Spawn
   m_TagString: Untagged
@@ -13482,6 +13522,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1890000811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890000809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c309b416ebccb74429b3f4fa6d17b9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: Pueblo
+  prefab_mainchar: {fileID: 2786360661689224381, guid: 7d558d9f62806a346a6916541414857e, type: 3}
+  prefab_camera: {fileID: 2852426309676693004, guid: fee43c3da3baf484b9d8ee0203541837, type: 3}
 --- !u!1 &1928441741
 GameObject:
   m_ObjectHideFlags: 0
@@ -13493,7 +13548,7 @@ GameObject:
   - component: {fileID: 1928441743}
   - component: {fileID: 1928441742}
   m_Layer: 0
-  m_Name: atlas_48x_361
+  m_Name: Vendor_pink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13575,7 +13630,7 @@ GameObject:
   - component: {fileID: 2142331141}
   - component: {fileID: 2142331140}
   m_Layer: 0
-  m_Name: atlas_48x_310
+  m_Name: Vendor_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
