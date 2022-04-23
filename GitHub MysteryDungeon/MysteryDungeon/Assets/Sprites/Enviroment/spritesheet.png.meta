@@ -5357,6 +5357,9 @@ TextureImporter:
   - first:
       213: -8920670413472969331
     second: spritesheet_1784
+  - first:
+      213: 996099941796691000
+    second: spritesheet_1785
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -42938,6 +42941,27 @@ TextureImporter:
       bones: []
       spriteID: d8d4b9ec589633480800000000000000
       internalID: -8920670413472969331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_1785
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 695
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c34979e9bd2dd00800000000000000
+      internalID: 996099941796691000
       vertices: []
       indices: 
       edges: []
