@@ -218,8 +218,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 320294661772619062}
   Collider2D: {fileID: 320294660768993746}
   wallMask:
-    serializedVersion: 2
+  - serializedVersion: 2
     m_Bits: 64
+  - serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &320294660768993746
 BoxCollider2D:
   m_ObjectHideFlags: 0

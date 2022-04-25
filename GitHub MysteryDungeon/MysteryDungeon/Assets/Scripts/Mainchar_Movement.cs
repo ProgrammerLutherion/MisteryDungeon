@@ -8,7 +8,7 @@ public class Mainchar_Movement : MonoBehaviour
     int Zpos = -9;
     public SpriteRenderer spriteRenderer;
     public Collider2D Collider2D;
-    public LayerMask wallMask;
+    public LayerMask[] wallMask;
     private BoxCollider2D bloquearriba, bloquederecha, bloqueabajo, bloqueizquierda;
     // Start is called before the first frame update
     void Start()
@@ -22,28 +22,28 @@ public class Mainchar_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!bloqueizquierda.IsTouchingLayers(wallMask))
+        if (moveValidate(bloqueizquierda))
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
                 StartCoroutine(moveXonA());
             }
         }
-        if (!bloquederecha.IsTouchingLayers(wallMask))
+        if (moveValidate(bloquederecha))
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 StartCoroutine(moveXonD());
             }
         }
-        if (!bloquearriba.IsTouchingLayers(wallMask))
+        if (moveValidate(bloquearriba))
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
                 StartCoroutine(moveXonW());
             }
         }
-        if (!bloqueabajo.IsTouchingLayers(wallMask))
+        if (moveValidate(bloqueabajo))
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
@@ -56,10 +56,10 @@ public class Mainchar_Movement : MonoBehaviour
     IEnumerator moveXonA()
     {
         spriteRenderer.flipX = false;
-        for (int x = 0; x < 100; x++)
+        for (int x = 0; x < 40; x++)
         {
-            this.transform.position = new Vector3((float)(this.transform.position.x - 0.01), this.transform.position.y,Zpos);
-            yield return new WaitForSecondsRealtime((float)0.001);
+            this.transform.position = new Vector3((float)(this.transform.position.x - 0.025), this.transform.position.y,Zpos);
+            yield return new WaitForSecondsRealtime((float)0.0002);
         }       
     }
 
@@ -68,30 +68,40 @@ public class Mainchar_Movement : MonoBehaviour
 
         spriteRenderer.flipX = true;
         
-        for (int x = 0; x < 100; x++)
+        for (int x = 0; x < 40; x++)
         {
-            this.transform.position = new Vector3((float)(this.transform.position.x + 0.01), this.transform.position.y, Zpos);
-            yield return new WaitForSecondsRealtime((float)0.001);
+            this.transform.position = new Vector3((float)(this.transform.position.x + 0.025), this.transform.position.y, Zpos);
+            yield return new WaitForSecondsRealtime((float)0.0002);
         }
     }
 
     IEnumerator moveXonW()
     {
-        for (int x = 0; x < 100; x++)
+        for (int x = 0; x < 40; x++)
         {
-            this.transform.position = new Vector3(this.transform.position.x, (float)(this.transform.position.y + 0.01), Zpos);
-            yield return new WaitForSecondsRealtime((float)0.001);
+            this.transform.position = new Vector3(this.transform.position.x, (float)(this.transform.position.y + 0.025), Zpos);
+            yield return new WaitForSecondsRealtime((float)0.0002);
         }
     }
 
     IEnumerator moveXonS()
     {
-        for (int x = 0; x < 100; x++)
+        for (int x = 0; x < 40; x++)
         {
-            this.transform.position = new Vector3(this.transform.position.x, (float)(this.transform.position.y - 0.01), Zpos);
-            yield return new WaitForSecondsRealtime((float)0.001);
+            this.transform.position = new Vector3(this.transform.position.x, (float)(this.transform.position.y - 0.025), Zpos);
+            yield return new WaitForSecondsRealtime((float)0.0002);
         }
     }
 
-
+    private bool moveValidate(BoxCollider2D collider)
+    {
+        foreach(LayerMask layerMask in wallMask)
+        {
+            if (!collider.IsTouchingLayers(layerMask))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
