@@ -10,6 +10,6 @@ public class exit : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(pj.transform.position == collision.transform.position)
-        SceneManager.LoadScene("Dungeon");
+            SceneManager.LoadScene("Dungeon");
     }
 }
