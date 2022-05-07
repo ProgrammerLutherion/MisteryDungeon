@@ -32,7 +32,7 @@ public class DungeonGenerator : MonoBehaviour
     private int maxRoutes = 20;
     [SerializeField]
     private GameObject exit;
-    private bool salida = false;
+
     private int X, Y;
 
     private int routeCount = 0;
@@ -53,10 +53,7 @@ public class DungeonGenerator : MonoBehaviour
         NewRoute(x, y, routeLength, previousPos);
         FillWalls();
 
-        //if (!salida){
-            exit.transform.position = new Vector3((float)(X + 0.5), (float)(Y + 0.5), 0);
-            salida = true;
-        //}
+        exit.transform.position = new Vector3((float)(X + 0.5), (float)(Y + 0.5), 0);
     }
 
     private void FillWalls()
