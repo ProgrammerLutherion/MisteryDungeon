@@ -30,11 +30,18 @@ public class DungeonGenerator : MonoBehaviour
     private int maxRouteLength;
     [SerializeField]
     private int maxRoutes = 20;
-    
+    [SerializeField]
+    private GameObject exit;
+    private bool salida = false;
+    private int X, Y;
 
     private int routeCount = 0;
-
+    
     private void Start()
+    {
+        Load();
+    }
+    private void Load()
     {
         int x = 0;
         int y = 0;
@@ -44,8 +51,12 @@ public class DungeonGenerator : MonoBehaviour
         y += 3;
         GenerateSquare(x, y, 1);
         NewRoute(x, y, routeLength, previousPos);
-
         FillWalls();
+
+        //if (!salida){
+            exit.transform.position = new Vector3((float)(X + 0.5), (float)(Y + 0.5), 0);
+            salida = true;
+        //}
     }
 
     private void FillWalls()
@@ -74,7 +85,9 @@ public class DungeonGenerator : MonoBehaviour
                     }
                 }
             }
+
         }
+
     }
 
     private void NewRoute(int x, int y, int routeLength, Vector2Int previousPos)
@@ -150,7 +163,10 @@ public class DungeonGenerator : MonoBehaviour
                     GenerateSquare(x, y, roomSize);
                 }
             }
+
         }
+        X = x;
+        Y = y;
     }
 
     private void GenerateSquare(int x, int y, int radius)
