@@ -98,7 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a962377c954dbae4184c3e06cec1e2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
+  AttackDamage: 0
+  Armor: 0
+  Money: 0
   dialogueUI: {fileID: 0}
+  panel: {fileID: 620326753527612945, guid: 34b617bc9f98de749b4878ee4b3b3174, type: 3}
   animator: {fileID: 4668899163559279016}
   rb: {fileID: 3259567100829199188}
   Movement_Speed: 5
