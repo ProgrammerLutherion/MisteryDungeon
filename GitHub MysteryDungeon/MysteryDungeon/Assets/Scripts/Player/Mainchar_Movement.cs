@@ -10,6 +10,13 @@ public class Mainchar_Movement : MonoBehaviour
     public Collider2D Collider2D;
     public LayerMask[] wallMask;
     private BoxCollider2D bloquearriba, bloquederecha, bloqueabajo, bloqueizquierda;
+    [SerializeField]
+    private Sprite spriteArriba;
+    [SerializeField]
+    private Sprite spriteAbajo;
+    [SerializeField]
+    private Sprite spriteLateral;
+    [SerializeField]
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +63,7 @@ public class Mainchar_Movement : MonoBehaviour
     IEnumerator moveXonA()
     {
         spriteRenderer.flipX = false;
+        spriteRenderer.sprite = spriteLateral;
         for (int x = 0; x < 40; x++)
         {
             this.transform.position = new Vector3((float)(this.transform.position.x - 0.025), this.transform.position.y,Zpos);
@@ -67,7 +75,7 @@ public class Mainchar_Movement : MonoBehaviour
     {
 
         spriteRenderer.flipX = true;
-        
+        spriteRenderer.sprite = spriteLateral;
         for (int x = 0; x < 40; x++)
         {
             this.transform.position = new Vector3((float)(this.transform.position.x + 0.025), this.transform.position.y, Zpos);
@@ -77,6 +85,7 @@ public class Mainchar_Movement : MonoBehaviour
 
     IEnumerator moveXonW()
     {
+        spriteRenderer.sprite = spriteArriba;
         for (int x = 0; x < 40; x++)
         {
             this.transform.position = new Vector3(this.transform.position.x, (float)(this.transform.position.y + 0.025), Zpos);
@@ -86,11 +95,13 @@ public class Mainchar_Movement : MonoBehaviour
 
     IEnumerator moveXonS()
     {
+        spriteRenderer.sprite = spriteAbajo;
         for (int x = 0; x < 40; x++)
         {
             this.transform.position = new Vector3(this.transform.position.x, (float)(this.transform.position.y - 0.025), Zpos);
             yield return new WaitForSecondsRealtime((float)0.0002);
         }
+        
     }
 
     private bool moveValidate(BoxCollider2D collider)
