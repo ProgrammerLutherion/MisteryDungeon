@@ -15,3 +15,6 @@ MonoBehaviour:
   dialogue:
   - You said yes.
   responses: []
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []

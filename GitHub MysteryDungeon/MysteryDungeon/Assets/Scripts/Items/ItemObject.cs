@@ -25,8 +25,8 @@ public enum EquipmentPart
 
 public abstract class ItemObject : ScriptableObject
 {
-    [SerializeField] private string Description;    
-    public GameObject prefab;
+    public Sprite itemImage;
+    public int price,value;
     public ItemType type;
     public EquipmentPart equipmenttype;
     [TextArea(15,20)]public string description;

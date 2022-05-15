@@ -6,7 +6,17 @@ public class Camera_Controller : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform player;
-    public Vector3 offset;
+    public Vector3 offset;   
+    private void Start()
+    {
+        foreach(GameObject gameObject in DontDestroyOnLoadManager._ddolObjects)
+        {
+            if(gameObject.tag == "Player")
+            {
+                player = gameObject.transform;
+            }
+        }
+    }
 
     void Update()
     {

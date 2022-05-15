@@ -5,7 +5,7 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
-    [SerializeField] private DialogueObject testDialogue;
+    [SerializeField] private DialogueObject testDialogue; 
 
     public bool IsOpen { get; private set; }
 
@@ -81,4 +81,8 @@ public class DialogueUI : MonoBehaviour
         textLabel.text = string.Empty;
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoadManager.DontDestroyOnLoad(this.gameObject);
+    }
 }

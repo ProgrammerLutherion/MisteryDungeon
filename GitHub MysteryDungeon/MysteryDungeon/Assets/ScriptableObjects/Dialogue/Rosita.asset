@@ -16,12 +16,9 @@ MonoBehaviour:
   - 'Hola aventurero!
 
     Deseas comprar algo para tu proximo viaje?'
-  - 'Tengo muchos objetos magicos que te podrian interesar!
-
-    Pero claro, todo
-    a cambio de unas piezas de oro jejeje...'
+  - Tengo muchos objetos magicos que te podrian interesar!
   responses:
   - responseText: Okay, veamos que tienes.
-    dialogueObject: {fileID: 11400000, guid: 8978057c90533fe4db9cd01e1e26c353, type: 2}
+    dialogueObject: {fileID: 0}
   - responseText: No, gracias.
-    dialogueObject: {fileID: 11400000, guid: e7d17db5abc67204dbc65a1964fdf144, type: 2}
+    dialogueObject: {fileID: 0}

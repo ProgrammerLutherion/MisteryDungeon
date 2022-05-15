@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class DungeonGenerator : MonoBehaviour
 {
-
     [SerializeField]
     private Tile groundTile;
     [SerializeField]

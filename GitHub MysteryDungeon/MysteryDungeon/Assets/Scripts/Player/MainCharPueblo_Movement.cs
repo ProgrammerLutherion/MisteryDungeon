@@ -13,7 +13,7 @@ public class MainCharPueblo_Movement : Player
 
     void Update()
     {
-        if(base.panel.active == false)
+        if(base.canMove == true)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");

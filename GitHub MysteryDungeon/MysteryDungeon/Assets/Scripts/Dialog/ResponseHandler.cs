@@ -51,30 +51,30 @@ public class ResponseHandler : MonoBehaviour
     }
 
     private void OnPickedResponse(Response response, int responseIndex)
-    {
-        responseBox.gameObject.SetActive(false);
+    {       
+            responseBox.gameObject.SetActive(false);
 
-        foreach (GameObject button in tempResponseButtons)
-        {
-            Destroy(button);
-        }
-        tempResponseButtons.Clear();
+            foreach (GameObject button in tempResponseButtons)
+            {
+                Destroy(button);
+            }
+            tempResponseButtons.Clear();
 
-        if(responseEvents != null && responseIndex <= responseEvents.Length)
-        {
-            responseEvents[responseIndex].OnPickedResponse?.Invoke();
-        }
+            if (responseEvents != null && responseIndex <= responseEvents.Length)
+            {
+                responseEvents[responseIndex].OnPickedResponse?.Invoke();
+            }
 
-        responseEvents = null;
+            responseEvents = null;
 
-        if (response.DialogueObject)
-        {
-            dialogueUI.ShowDialogue(response.DialogueObject);
-        }
-        else
-        {
-            dialogueUI.CloseDialogueBox();
-        }
-        
+            if (response.DialogueObject)
+            {
+                dialogueUI.ShowDialogue(response.DialogueObject);
+            }
+            else
+            {
+                dialogueUI.CloseDialogueBox();
+            }
+              
     }
 }
