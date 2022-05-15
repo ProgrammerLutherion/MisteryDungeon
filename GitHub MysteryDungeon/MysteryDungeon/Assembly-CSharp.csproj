@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Drag&amp;Drop\EquipmentSlot.cs" />
-    <Compile Include="Assets\exit.cs" />
+    <Compile Include="Assets\Scripts\exit.cs" />
     <Compile Include="Assets\Scripts\Items\ChestplateItem.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Drag&amp;Drop\DraggableComponent.cs" />
@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Player\Mainchar_Movement.cs" />
     <Compile Include="Assets\Scripts\ChangeToPueblo.cs" />
     <Compile Include="Assets\Scripts\ChangeToScene.cs" />
+    <Compile Include="Assets\Scripts\Menu\HandleMenu.cs" />
     <Compile Include="Assets\Scripts\TilemapToPng.cs" />
     <Compile Include="Assets\Scripts\Drag&amp;Drop\DropCondition.cs" />
     <Compile Include="Assets\Scripts\Drag&amp;Drop\FakeInventory.cs" />
@@ -75,23 +76,29 @@
     <Compile Include="Assets\Scripts\DungeonGenerator.cs" />
     <Compile Include="Assets\Scripts\Drag&amp;Drop\IsWeaponCondition.cs" />
     <Compile Include="Assets\Scripts\Items\HelmetItem.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy_Movement.cs" />
     <Compile Include="Assets\Scripts\spawn_mainchar.cs" />
     <Compile Include="Assets\Scripts\Items\BootsItem.cs" />
     <Compile Include="Assets\Scripts\Dialog\Response.cs" />
     <Compile Include="Assets\Scripts\Camera_Controller.cs" />
+    <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Items\WeaponItem.cs" />
+    <Compile Include="Assets\Scripts\TurnController.cs" />
     <Compile Include="Assets\Scripts\Drag&amp;Drop\Weapon.cs" />
     <Compile Include="Assets\Scripts\Drag&amp;Drop\DisableDropCondition.cs" />
     <Compile Include="Assets\Scripts\Items\LegarmorItem.cs" />
     <Compile Include="Assets\Scripts\Drag&amp;Drop\WeaponSlot.cs" />
     <Compile Include="Assets\Scripts\Items\ItemObject.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogueObject.cs" />
+    <Compile Include="Assets\Scripts\Contador.cs" />
     <Compile Include="Assets\Scripts\Player\MainCharPueblo_Movement.cs" />
+    <Compile Include="Assets\Scripts\Menu\CreateMenu.cs" />
     <Compile Include="Assets\Scripts\Dialog\ResponseEvent.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogueUI.cs" />
     <Compile Include="Assets\Scripts\Items\BraceletItem.cs" />
     <Compile Include="Assets\Scripts\Dialog\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Dialog\ResponseHandler.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

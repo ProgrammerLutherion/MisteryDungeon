@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mainchar_Movement : MonoBehaviour
+public class Mainchar_Movement : Player
 {
     // Start is called before the first frame update
-    int Zpos = -9;
+    int Zpos = -8;
     public SpriteRenderer spriteRenderer;
     public Collider2D Collider2D;
     public LayerMask[] wallMask;
+    public LayerMask enemyMask;
     private BoxCollider2D bloquearriba, bloquederecha, bloqueabajo, bloqueizquierda;
     [SerializeField]
     private Sprite spriteArriba;
@@ -16,49 +17,70 @@ public class Mainchar_Movement : MonoBehaviour
     private Sprite spriteAbajo;
     [SerializeField]
     private Sprite spriteLateral;
-    [SerializeField]
+    
+    public bool turno;
     // Start is called before the first frame update
     void Start()
     {
+        turno = true;
         bloquearriba = this.transform.GetChild(0).GetComponent<BoxCollider2D>();
         bloquederecha = this.transform.GetChild(1).GetComponent<BoxCollider2D>();
         bloqueabajo = this.transform.GetChild(2).GetComponent<BoxCollider2D>();
         bloqueizquierda = this.transform.GetChild(3).GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //if (collision.gameObject.layer == enemyMask) 
+            collision.gameObject.GetComponent<Enemy_Movement>().isInRange = true;    
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //if (collision.gameObject.layer == enemyMask)
+            collision.gameObject.GetComponent<Enemy_Movement>().isInRange = false;
+    }
+    
     void Update()
     {
         if (moveValidate(bloqueizquierda))
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) && turno)
             {
+                turnChange();
                 StartCoroutine(moveXonA());
             }
         }
         if (moveValidate(bloquederecha))
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) && turno)
             {
+                turnChange();
                 StartCoroutine(moveXonD());
             }
         }
         if (moveValidate(bloquearriba))
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) && turno)
             {
+                turnChange();
                 StartCoroutine(moveXonW());
             }
         }
         if (moveValidate(bloqueabajo))
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) && turno)
             {
+                turnChange();
                 StartCoroutine(moveXonS());
             }
         }
     }
 
+    public void turnChange()
+    {
+        turno = !turno;
+    }
 
     IEnumerator moveXonA()
     {
@@ -108,11 +130,11 @@ public class Mainchar_Movement : MonoBehaviour
     {
         foreach(LayerMask layerMask in wallMask)
         {
-            if (!collider.IsTouchingLayers(layerMask))
+            if (collider.IsTouchingLayers(layerMask))
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }

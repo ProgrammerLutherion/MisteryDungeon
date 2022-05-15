@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -27,24 +28,36 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField]
     private int roomRate = 15;
     [SerializeField]
+    private int enemyRate = 30;
+    [SerializeField]
     private int maxRouteLength;
     [SerializeField]
     private int maxRoutes = 20;
     [SerializeField]
     private GameObject exit;
-
+    [SerializeField]
+    private GameObject enemy;
+    //[SerializeField]
+    //private int maxFloors = 10;
+    [SerializeField]
+    private Contador cont;
     private int X, Y;
 
+    [SerializeField]
+    public List<GameObject> enemies;
+    private GameObject enemigo;
     private int routeCount = 0;
-    
+
     private void Start()
     {
-        Load();
+        load();
     }
-    private void Load()
+
+    public void load()
     {
         int x = 0;
         int y = 0;
+        cont.pisoplusplus();
         int routeLength = 0;
         GenerateSquare(x, y, 1);
         Vector2Int previousPos = new Vector2Int(x, y);
@@ -170,10 +183,16 @@ public class DungeonGenerator : MonoBehaviour
     {
         for (int tileX = x - radius; tileX <= x + radius; tileX++)
         {
+            bool spawned = false;
             for (int tileY = y - radius; tileY <= y + radius; tileY++)
             {
                 Vector3Int tilePos = new Vector3Int(tileX, tileY, 0);
                 groundMap.SetTile(tilePos, groundTile);
+                if (Random.Range(1, 1000) <= enemyRate && spawned == false){
+                    enemigo = Instantiate(enemy, new Vector3((float)(tileX + 0.5), (float)(tileY + 0.5), 0), transform.rotation);
+                    enemies.Add(enemigo);
+                    spawned = true;
+                }
             }
         }
     }
