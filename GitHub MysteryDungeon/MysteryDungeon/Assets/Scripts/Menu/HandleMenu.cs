@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class HandleMenu : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject MainChar;
     void OnGUI()
     {
         // We will only show the menu if displayMenu is true
@@ -9,19 +11,22 @@ public class HandleMenu : MonoBehaviour
         // we forget to send the MenuManager the GameObject that was clicked on.
         if (MenuManager.displayMenu && MenuManager.menuTarget)
         {
+            MainChar.GetComponent<Mainchar_Movement>().block= true;
             Vector2 position = GetComponent<Camera>().WorldToScreenPoint(MenuManager.menuTarget.transform.position);
 
             GUILayout.BeginArea(new Rect(position.x, position.y, 128, 80), GUI.skin.box);
 
-            GUILayout.Label("Commands");
+            GUILayout.Label("Menú");
 
-            if (GUILayout.Button("Attack"))
+            if (GUILayout.Button("Atacar"))
             {
 
                 if (MenuManager.menuTarget.GetComponent<Enemy_Movement>().isInRange)
                 {
-                MenuManager.displayMenu = false;
-                Debug.Log("Attack!");
+                    MenuManager.menuTarget.GetComponent<Enemy_Movement>().takeDamage(MainChar.GetComponent<Mainchar_Movement>().getAttackDamage());
+                    MenuManager.displayMenu = false;
+                    MainChar.GetComponent<Mainchar_Movement>().turnChange();
+                    Debug.Log("Attack!");
                 }
                 else
                 {
@@ -29,11 +34,13 @@ public class HandleMenu : MonoBehaviour
                 }
 
 
+                MainChar.GetComponent<Mainchar_Movement>().block = false;
                 MenuManager.menuTarget = null;
             }
 
-            if (GUILayout.Button("Cancel"))
+            if (GUILayout.Button("Cancelar"))
             {
+                MainChar.GetComponent<Mainchar_Movement>().block = false;
                 MenuManager.displayMenu = false;
                 MenuManager.menuTarget = null;
             }

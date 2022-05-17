@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class Mainchar_Movement : Player
     [SerializeField]
     private Sprite spriteLateral;
     
-    public bool turno;
+    public bool turno, block = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,17 +33,23 @@ public class Mainchar_Movement : Player
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if (collision.gameObject.layer == enemyMask) 
+        try{ 
             collision.gameObject.GetComponent<Enemy_Movement>().isInRange = true;    
+        }catch (NullReferenceException) { }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         //if (collision.gameObject.layer == enemyMask)
+        try { 
             collision.gameObject.GetComponent<Enemy_Movement>().isInRange = false;
+        }
+        catch (NullReferenceException) { }
     }
     
     void Update()
     {
+        if (!block) { 
         if (moveValidate(bloqueizquierda))
         {
             if (Input.GetKeyDown(KeyCode.A) && turno)
@@ -74,6 +81,7 @@ public class Mainchar_Movement : Player
                 turnChange();
                 StartCoroutine(moveXonS());
             }
+        }
         }
     }
 

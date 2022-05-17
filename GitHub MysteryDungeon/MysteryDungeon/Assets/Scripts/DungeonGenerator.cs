@@ -53,8 +53,22 @@ public class DungeonGenerator : MonoBehaviour
         load();
     }
 
+    public void reset()
+    {
+        groundMap.ClearAllTiles();
+        pitMap.ClearAllTiles();
+        wallMap.ClearAllTiles();
+        routeCount = 0;
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        enemies.Clear();
+    }
+
     public void load()
     {
+        reset();
         int x = 0;
         int y = 0;
         cont.pisoplusplus();

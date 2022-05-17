@@ -430,6 +430,7 @@ MonoBehaviour:
   - serializedVersion: 2
     m_Bits: 128
   spriteArriba: {fileID: 5954917350607410653, guid: eb0810ea505107e448559501b0fdbdcf, type: 3}
+  MainChar: {fileID: 5843974950093434879, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
   spriteAbajo: {fileID: 6153009765710178414, guid: eb0810ea505107e448559501b0fdbdcf, type: 3}
   spriteLateral: {fileID: -1344880468252075743, guid: eb0810ea505107e448559501b0fdbdcf, type: 3}
   isInRange: 0

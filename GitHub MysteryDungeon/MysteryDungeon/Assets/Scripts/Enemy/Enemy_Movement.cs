@@ -16,10 +16,13 @@ public class Enemy_Movement : Enemy
     [SerializeField]
     private Sprite spriteLateral;
 
+    private Player MainChar;
+
     public bool isInRange;
     // Start is called before the first frame update
     void Start()
     {
+        MainChar = FindObjectOfType<Player>();
         bloquearriba = this.transform.GetChild(0).GetComponent<BoxCollider2D>();
         bloquederecha = this.transform.GetChild(1).GetComponent<BoxCollider2D>();
         bloqueabajo = this.transform.GetChild(2).GetComponent<BoxCollider2D>();
@@ -27,27 +30,30 @@ public class Enemy_Movement : Enemy
     }
 
     // Update is called once per frame
-    public void Move()
+    public void Act()
     {
-        switch(Random.Range(1, 5))
-        {
-            case 1:
-                if (moveValidate(bloquearriba))
-                StartCoroutine(moveXonW());
-                break;
-            case 2:
-                if (moveValidate(bloqueizquierda))
-                StartCoroutine(moveXonA());
-                break;
-            case 3:
-                if (moveValidate(bloqueabajo))
-                StartCoroutine(moveXonS());
-                break;
-            case 4:
-                if (moveValidate(bloquederecha))
-                StartCoroutine(moveXonD());
-                break;
-        }
+        if (isInRange)
+            MainChar.takeDamage(getAttackDamage());
+        else
+            switch (Random.Range(1, 5))
+            {
+                case 1:
+                    if (moveValidate(bloquearriba))
+                        StartCoroutine(moveXonW());
+                    break;
+                case 2:
+                    if (moveValidate(bloqueizquierda))
+                        StartCoroutine(moveXonA());
+                    break;
+                case 3:
+                    if (moveValidate(bloqueabajo))
+                        StartCoroutine(moveXonS());
+                    break;
+                case 4:
+                    if (moveValidate(bloquederecha))
+                        StartCoroutine(moveXonD());
+                    break;
+            }
     }
 
 
