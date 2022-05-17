@@ -7,7 +7,6 @@ using UnityEngine;
 public class FakeInventory : MonoBehaviour
 {
 	[SerializeField] private Transform inventoryItemsContainer;
-
 	private void Start()
 	{
 		InitializeItems();
@@ -24,5 +23,6 @@ public class FakeInventory : MonoBehaviour
 				slot.Initialize(item);
 			}
 		}
+
 	}
 }

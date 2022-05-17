@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/BraceletItem")]
 public class BraceletItem : ItemObject
 {
-    [SerializeField] private int ArmorValue;
     private void Awake()
     {
         type = ItemType.Armor;

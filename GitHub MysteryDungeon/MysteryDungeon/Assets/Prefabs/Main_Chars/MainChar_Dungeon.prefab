@@ -168,11 +168,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5843974951231001444}
   - component: {fileID: 5843974950093434878}
-  - component: {fileID: 5843974950093434879}
   - component: {fileID: 5843974951231001370}
   - component: {fileID: 6154188739465521059}
   - component: {fileID: 2737936810254669265}
-  m_Layer: 7
+  - component: {fileID: 3541574072924271598}
+  m_Layer: 6
   m_Name: MainChar_Dungeon
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -248,38 +248,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5843974950093434879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5843974950093434877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea3ba9c066a74f45bd8ffd39e95eeb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 50
-  AttackDamage: 3
-  Armor: 10
-  Money: 0
-  dialogueUI: {fileID: 0}
-  panel: {fileID: 0}
-  spriteRenderer: {fileID: 5843974950093434878}
-  Collider2D: {fileID: 5843974951231001370}
-  wallMask:
-  - serializedVersion: 2
-    m_Bits: 64
-  - serializedVersion: 2
-    m_Bits: 512
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  spriteArriba: {fileID: 2861056894181261992, guid: eb0810ea505107e448559501b0fdbdcf, type: 3}
-  spriteAbajo: {fileID: 7834053153390759766, guid: eb0810ea505107e448559501b0fdbdcf, type: 3}
-  spriteLateral: {fileID: -7436047991345094940, guid: eb0810ea505107e448559501b0fdbdcf, type: 3}
-  turno: 1
 --- !u!61 &5843974951231001370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -343,6 +311,38 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!114 &3541574072924271598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5843974950093434877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3668363bb2d213649863624c7fc8aa97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  AttackDamage: 0
+  Armor: 0
+  money: 50
+  canMove: 1
+  inventory: {fileID: 0}
+  equipedItems: {fileID: 0}
+  dialogueUI: {fileID: 0}
+  openShop: {fileID: 0}
+  panel: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  Collider2D: {fileID: 0}
+  wallMask: []
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  spriteArriba: {fileID: 0}
+  spriteAbajo: {fileID: 0}
+  spriteLateral: {fileID: 0}
+  turno: 0
 --- !u!1 &5843974950782911652
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,10 +5,8 @@ using UnityEngine.EventSystems;
 public class EquipmentSlot : MonoBehaviour
 {
 	protected DropArea DropArea;
-	protected DraggableComponent CurrentItem = null;
-	public ItemObject holdingItem = null;
-	public EquipmentPart equipmentPart;
-
+	[SerializeField] protected DraggableComponent CurrentItem = null;
+	public EquipmentPart isPart;
 	private DisableDropCondition disableDropCondition;
 
 	protected virtual void Awake()
@@ -16,6 +14,7 @@ public class EquipmentSlot : MonoBehaviour
 		DropArea = GetComponent<DropArea>() ?? gameObject.AddComponent<DropArea>();
 		DropArea.OnDropHandler += OnItemDropped;
 		disableDropCondition = new DisableDropCondition();
+		DropArea.DropConditions.Add(new ConditionChecker());
 	}
 
 	public void Initialize(DraggableComponent currentItem)
@@ -51,8 +50,8 @@ public class EquipmentSlot : MonoBehaviour
 		{
 			return;
 		}
-
-		DropArea.DropConditions.Remove(disableDropCondition); //We dropped the component in another slot so we can remove the DisableDropCondition
+		Debug.Log("DropArea.DropConditions.Remove(disableDropCondition)");
+		//DropArea.DropConditions.Remove(disableDropCondition); //We dropped the component in another slot so we can remove the DisableDropCondition
 		CurrentItem.OnBeginDragHandler -= CurrentItemOnBeginDrag; //We make sure to remove this listener as the item is no longer in this slot
 		CurrentItem = null; //We no longer have an item in this slot, so we remove the refference
 	}

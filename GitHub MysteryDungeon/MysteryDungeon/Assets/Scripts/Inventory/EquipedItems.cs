@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class EquipedItems : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private Transform equipedItemsContainer;
+	private void Start()
+	{
+		InitializeItems();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void InitializeItems()
+	{
+		var slots = equipedItemsContainer.GetComponentsInChildren<EquipmentSlot>();
+		foreach (var slot in slots)
+		{
+			var item = slot.GetComponentInChildren<DraggableComponent>();
+			if (item != null)
+			{
+				slot.Initialize(item);
+			}
+		}
+
+	}
 }

@@ -7,7 +7,8 @@ public class TypewriterEffect : MonoBehaviour
 {
 
     [SerializeField] private float typeWritterSpeed = 50f;
-
+    [SerializeField] private float soundCD = 0.5f;
+    private float nextTimeToSound;
     public bool IsRunning { get;private set; }
 
     private readonly List<Punctuation> punctuations = new List<Punctuation>()
@@ -51,6 +52,13 @@ public class TypewriterEffect : MonoBehaviour
                 bool isLast = i >= TextToType.Length - 1;
 
                 textLabel.text = TextToType.Substring(0, i + 1);
+
+                if(nextTimeToSound < Time.time)
+                {
+                    nextTimeToSound = Time.time + soundCD;
+                    FindObjectOfType<AudioManager>().Play("TextSound");
+                }
+                
 
                 if(IsPunctuation(TextToType[i], out float waitTime) && !isLast && !IsPunctuation(TextToType[i+1],out _))
                 {

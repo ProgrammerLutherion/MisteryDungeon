@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DraggableComponent : MonoBehaviour, IInitializePotentialDragHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -15,6 +16,7 @@ public class DraggableComponent : MonoBehaviour, IInitializePotentialDragHandler
 
 	private RectTransform rectTransform;
 	private Canvas canvas;
+	public ItemObject item;
 
 	private void Awake()
 	{
@@ -71,14 +73,27 @@ public class DraggableComponent : MonoBehaviour, IInitializePotentialDragHandler
 
 		if (dropArea != null)
 		{
-			if (dropArea.Accepts(this))
-			{
-				dropArea.Drop(this);
-				OnEndDragHandler?.Invoke(eventData, true);
-				return;
+			if(item != null)
+            {
+				if (dropArea.Accepts(this))
+				{
+					this.gameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 1);
+					this.gameObject.GetComponent<Image>().sprite = null;					
+					dropArea.Drop(this, item);					
+					OnEndDragHandler?.Invoke(eventData, true);
+					rectTransform.anchoredPosition = StartPosition;
+					return;
+				}
 			}
+            /*else if(dropArea.Accepts(this))
+            {
+				dropArea.Drop(this, item);
+				OnEndDragHandler?.Invoke(eventData, true);
+				rectTransform.anchoredPosition = StartPosition;
+				return;
+			}*/
 		}
-
+		
 		rectTransform.anchoredPosition = StartPosition;
 		OnEndDragHandler?.Invoke(eventData, false);
 	}

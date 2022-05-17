@@ -5,13 +5,8 @@ using UnityEngine;
 //Condition used to disable the drop action. Check method will always return false, regardless of the draggable
 public class DisableDropCondition : DropCondition
 {
-	public override bool Check(DraggableComponent draggable)
-	{
-		return false;
-	}
-
     public override bool Check(DraggableComponent draggable, EquipmentPart isPart)
     {
-        throw new System.NotImplementedException();
+        return false;
     }
 }
