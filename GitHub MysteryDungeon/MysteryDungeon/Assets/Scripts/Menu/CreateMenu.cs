@@ -6,6 +6,5 @@ public class CreateMenu : MonoBehaviour
     {
         MenuManager.displayMenu = true;
         MenuManager.menuTarget = gameObject;
-        Debug.Log(MenuManager.menuTarget);
     }
 }

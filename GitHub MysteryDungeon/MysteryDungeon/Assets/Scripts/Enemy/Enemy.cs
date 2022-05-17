@@ -7,6 +7,26 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] 
     protected int Health, AttackDamage, Armor;
+
+    public int getHealth()
+    {
+        return Health;
+    }
+    public int getAttackDamage()
+    {
+        return AttackDamage;
+    }
+    public int getArmor()
+    {
+        return Armor;
+    }
+
+    public void takeDamage(int damage) {
+        if (Health - damage <= 0)
+            Health = 0;
+        else
+            Health -= damage;
+    }
 }
 
 

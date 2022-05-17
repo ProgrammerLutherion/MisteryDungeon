@@ -14,6 +14,27 @@ public class Player : MonoBehaviour
     public bool CanMove => canMove;
     public int Money => money;
     public IInteractable Interactable { get; set; }
+    
+    public int getHealth()
+    {
+        return Health;
+    }
+    public int getAttackDamage()
+    {
+        return AttackDamage;
+    }
+    public int getArmor()
+    {
+        return Armor;
+    }
+
+    public void takeDamage(int damage)
+    {
+        if (Health - damage <= 0)
+            Health = 0;
+        else
+            Health -= damage;
+    }
 
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private OpenShop openShop;

@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Items\ItemObject.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogueObject.cs" />
     <Compile Include="Assets\Scripts\Contador.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Player\MainCharPueblo_Movement.cs" />
     <Compile Include="Assets\Scripts\Menu\CreateMenu.cs" />
     <Compile Include="Assets\Scripts\Dialog\ResponseEvent.cs" />
@@ -98,7 +99,6 @@
     <Compile Include="Assets\Scripts\Items\BraceletItem.cs" />
     <Compile Include="Assets\Scripts\Dialog\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Dialog\ResponseHandler.cs" />
-    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

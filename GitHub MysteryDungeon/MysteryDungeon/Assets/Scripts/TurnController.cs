@@ -7,7 +7,7 @@ public class TurnController : MonoBehaviour
     [SerializeField]
     private DungeonGenerator dungeonGenerator;
     [SerializeField]
-    private Mainchar_Movement mainchar_movement;
+    public Mainchar_Movement mainchar_movement;
     [SerializeField]
     private float cooldown;
     
@@ -15,9 +15,14 @@ public class TurnController : MonoBehaviour
     {
         if (!mainchar_movement.turno) {
             StartCoroutine(timeout());
-        foreach (var enemy in dungeonGenerator.enemies)
-        {
-            enemy.GetComponent<Enemy_Movement>().Move();
+            foreach (var enemy in dungeonGenerator.enemies)
+            {
+                if (enemy.GetComponent<Enemy_Movement>().getHealth() == 0) { 
+                dungeonGenerator.enemies.Remove(enemy);
+                    Destroy(enemy);
+                }else
+                    enemy.GetComponent<Enemy_Movement>().Act();
+            
         }
         mainchar_movement.turnChange();
         }
