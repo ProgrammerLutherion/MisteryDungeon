@@ -123,67 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &153001604
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5843974950093434877, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_Name
-      value: MainChar_Dungeon
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974950093434879, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: Health
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e4b663bf7cf474e957c70bd6280322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1284790139}
+  player: {fileID: 0}
   offset: {x: 0, y: 0, z: -50}
 --- !u!20 &519420031
 Camera:
@@ -253,7 +192,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.44121
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -295,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24287c1dbdd681e42ac4e3fa3bdd9a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainChar: {fileID: 1284790133}
+  MainChar: {fileID: 0}
 --- !u!1 &523863455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 769287909154080022, guid: 96228d1090986a141a1903b4b4ca7e2a, type: 3}
@@ -313,7 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9400d22f5a6954a9e0fbee1e00cd06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pj: {fileID: 1284790133}
   dg: {fileID: 765993464}
 --- !u!1 &765993463
 GameObject:
@@ -354,7 +292,6 @@ MonoBehaviour:
   groundMap: {fileID: 2131178507}
   pitMap: {fileID: 1383608130}
   wallMap: {fileID: 1324308012}
-  player: {fileID: 1284790133}
   deviationRate: 15
   roomRate: 10
   enemyRate: 5
@@ -364,6 +301,7 @@ MonoBehaviour:
   enemy: {fileID: 7116689884551983090, guid: 63e63a53671d3594182be1cd212e4adf, type: 3}
   cont: {fileID: 765993467}
   enemies: []
+  player: {fileID: 0}
 --- !u!156049354 &765993465
 Grid:
   m_ObjectHideFlags: 0
@@ -419,29 +357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonGenerator: {fileID: 765993464}
-  mainchar_movement: {fileID: 1284790137}
+  mainchar_movement: {fileID: 0}
   cooldown: 1
---- !u!1 &1284790133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5843974950093434877, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-  m_PrefabInstance: {fileID: 153001604}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1284790137 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5843974950093434879, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-  m_PrefabInstance: {fileID: 153001604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284790133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea3ba9c066a74f45bd8ffd39e95eeb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1284790139 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5843974951231001444, guid: b835c6fe5b836184ca5392ae971b0767, type: 3}
-  m_PrefabInstance: {fileID: 153001604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1324308011
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +371,7 @@ GameObject:
   - component: {fileID: 1324308012}
   - component: {fileID: 1324308013}
   - component: {fileID: 1324308015}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +506,7 @@ GameObject:
   - component: {fileID: 1383608130}
   - component: {fileID: 1383608131}
   - component: {fileID: 1383608133}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +640,7 @@ GameObject:
   - component: {fileID: 2131178509}
   - component: {fileID: 2131178507}
   - component: {fileID: 2131178508}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}

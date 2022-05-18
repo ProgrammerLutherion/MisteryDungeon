@@ -33,6 +33,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopAll()
+    {
+        foreach (Sound sound in sounds)
+        {
+            sound.source.Stop();
+        }
+    }
+
+    public void PlayText(string name)
+    {
+        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        if (sound == null)
+        {
+            Debug.LogWarning("Sound:" + name + " not found!");
+            return;
+        }
+        
+        sound.source.Play();
+        
+    }
+
     public void Play(string name)
     {
         Sound sound = Array.Find(sounds, sound => sound.name == name);
@@ -41,6 +62,9 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound:" + name + " not found!");
             return;
         }
-        sound.source.Play();
+        if (!sound.source.isPlaying)
+        {
+            sound.source.Play();
+        }       
     }
 }

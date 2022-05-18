@@ -10,21 +10,23 @@ public class TurnController : MonoBehaviour
     public Mainchar_Movement mainchar_movement;
     [SerializeField]
     private float cooldown;
-    
+
+    private void Start()
+    {
+        mainchar_movement = dungeonGenerator.player.GetComponent<Mainchar_Movement>();
+    }
+
     void FixedUpdate()
     {
-        if (!mainchar_movement.turno) {
+        if (!mainchar_movement.turno) 
+        {
             StartCoroutine(timeout());
+            dungeonGenerator.enemies.RemoveAll(s => s == null);
             foreach (var enemy in dungeonGenerator.enemies)
-            {
-                if (enemy.GetComponent<Enemy_Movement>().getHealth() == 0) { 
-                dungeonGenerator.enemies.Remove(enemy);
-                    Destroy(enemy);
-                }else
-                    enemy.GetComponent<Enemy_Movement>().Act();
-            
-        }
-        mainchar_movement.turnChange();
+            {              
+               enemy.GetComponent<Enemy_Movement>().Act();           
+            }
+            mainchar_movement.turnChange();
         }
     }
 

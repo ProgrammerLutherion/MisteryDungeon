@@ -17,30 +17,36 @@ public class Player : MonoBehaviour
     
     public int getHealth()
     {
-        return Health;
+        return gameObject.GetComponent<Mainchar_Movement>().Health;
     }
     public int getAttackDamage()
     {
-        return AttackDamage;
+        return gameObject.GetComponent<Mainchar_Movement>().AttackDamage;
     }
     public int getArmor()
     {
-        return Armor;
+        return gameObject.GetComponent<Mainchar_Movement>().Armor;
     }
 
     public void takeDamage(int damage)
     {
-        if (Health - damage <= 0)
-            Health = 0;
+        if (gameObject.GetComponent<Mainchar_Movement>().Health - damage <= 0)
+        {
+            gameObject.GetComponent<Mainchar_Movement>().Health = 0;
+            FindObjectOfType<AudioManager>().Play("Hit");
+        }        
         else
-            Health -= damage;
+        {
+            gameObject.GetComponent<Mainchar_Movement>().Health -= damage;
+            FindObjectOfType<AudioManager>().Play("Hit");
+        }
+            
     }
 
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private OpenShop openShop;
     [SerializeField] protected GameObject panel;
 
-    private int Head = 0, Chestplate = 0, Chausses = 0, Boots = 0, Gauntlet = 0, Weapon = 0;
     public DialogueUI DialogueUI => dialogueUI;
 
     public OpenShop OpenShop => openShop;
@@ -97,13 +103,32 @@ public class Player : MonoBehaviour
             if(inventory.items[i] == null)
             {
                 inventory.items[i] = item;
-                inventory.InventoryItems.transform.GetChild(i).GetComponent<EquipmentSlot>().holdingItem = item;
+                inventory.InventoryItems.transform.GetChild(i).GetChild(0).GetComponent<DraggableComponent>().item = item;
                 inventory.InventoryItems.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = item.itemImage;
                 inventory.InventoryItems.transform.GetChild(i).GetChild(0).GetComponent<Image>().color = new Color(255,255,255,255);
                 return;
             }
         }
         
+    }
+
+    public void ChangeStats(ItemObject item)
+    {
+        switch (item.equipmenttype)
+        {
+            case EquipmentPart.ChestPlate:
+            case EquipmentPart.LegArmor:
+                gameObject.GetComponent<Mainchar_Movement>().Health += item.value;
+                break;
+            case EquipmentPart.Helmet:
+            case EquipmentPart.Bracelet:
+            case EquipmentPart.Boots:
+                gameObject.GetComponent<Mainchar_Movement>().Armor += item.value;
+                break;
+            case EquipmentPart.Weapon:
+                gameObject.GetComponent<Mainchar_Movement>().AttackDamage += item.value;
+                break;
+        }
     }
 }
 

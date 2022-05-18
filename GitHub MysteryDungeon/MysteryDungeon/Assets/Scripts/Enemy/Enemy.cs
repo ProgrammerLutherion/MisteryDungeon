@@ -23,9 +23,17 @@ public class Enemy : MonoBehaviour
 
     public void takeDamage(int damage) {
         if (Health - damage <= 0)
+        {
             Health = 0;
+            FindObjectOfType<AudioManager>().Play("Hit");
+            Destroy(gameObject);
+        }
         else
+        {
             Health -= damage;
+            FindObjectOfType<AudioManager>().Play("Hit");
+        }
+            
     }
 }
 

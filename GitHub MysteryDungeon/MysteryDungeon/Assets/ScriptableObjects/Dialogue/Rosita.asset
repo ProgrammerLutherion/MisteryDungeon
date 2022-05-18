@@ -15,7 +15,9 @@ MonoBehaviour:
   dialogue:
   - 'Hola aventurero!
 
-    Deseas comprar algo para tu proximo viaje?'
+    Deseas comprar algo para tu proximo
+
+    viaje?'
   - Tengo muchos objetos magicos que te podrian interesar!
   responses:
   - responseText: Okay, veamos que tienes.

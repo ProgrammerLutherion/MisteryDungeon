@@ -56,7 +56,7 @@ public class TypewriterEffect : MonoBehaviour
                 if(nextTimeToSound < Time.time)
                 {
                     nextTimeToSound = Time.time + soundCD;
-                    FindObjectOfType<AudioManager>().Play("TextSound");
+                    FindObjectOfType<AudioManager>().PlayText("TextSound");
                 }
                 
 

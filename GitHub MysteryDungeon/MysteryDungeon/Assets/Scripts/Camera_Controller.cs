@@ -13,7 +13,7 @@ public class Camera_Controller : MonoBehaviour
         {
             if(gameObject.tag == "Player")
             {
-                player = gameObject.transform;
+                player = gameObject.transform;               
             }
         }
     }

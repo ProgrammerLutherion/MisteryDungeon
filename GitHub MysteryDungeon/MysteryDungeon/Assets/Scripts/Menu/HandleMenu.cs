@@ -3,7 +3,14 @@ using UnityEngine;
 public class HandleMenu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject MainChar;
+    private Player MainChar;
+
+    private void Start()
+    {
+        MainChar = FindObjectOfType<Player>();
+        MainChar.GetComponent<MainCharPueblo_Movement>().enabled = false;
+        MainChar.GetComponent<Mainchar_Movement>().enabled = true;
+    }
     void OnGUI()
     {
         // We will only show the menu if displayMenu is true

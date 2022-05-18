@@ -13,9 +13,8 @@ public class ChangeToScene : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            //Debug.Log(collision.gameObject.name);
             DontDestroyOnLoadManager.DontDestroyOnLoad(collision.gameObject);
-            collision.gameObject.transform.position = new Vector3(0, 0, -21);
+            collision.gameObject.transform.position = new Vector3(0, collision.gameObject.transform.position.y - 1, -21);
             SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
         }
     }

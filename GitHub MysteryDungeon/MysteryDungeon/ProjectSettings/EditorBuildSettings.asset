@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pueblo.unity
     guid: 382fad3ef68a8b74b959d29598182739
+  - enabled: 1
+    path: Assets/Scenes/Dungeon.unity
+    guid: a9b4fb97cf2006e489d8ed3ad76b27d8
   m_configObjects: {}

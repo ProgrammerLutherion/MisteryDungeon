@@ -21,8 +21,6 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField]
     private Tilemap wallMap;
     [SerializeField]
-    private GameObject player;
-    [SerializeField]
     private int deviationRate = 10;
     [SerializeField]
     private int roomRate = 15;
@@ -46,9 +44,18 @@ public class DungeonGenerator : MonoBehaviour
     public List<GameObject> enemies;
     private GameObject enemigo;
     private int routeCount = 0;
+    public Player player;
 
     private void Start()
     {
+        FindObjectOfType<AudioManager>().StopAll();
+        FindObjectOfType<AudioManager>().Play("TemaDungeon");
+
+        player = FindObjectOfType<Player>();
+        if (player.gameObject.GetComponent<Animator>() == true)
+            player.gameObject.GetComponent<Animator>().enabled = false;
+        if (player.gameObject.GetComponent<CircleCollider2D>().enabled == false)
+            player.gameObject.GetComponent<CircleCollider2D>().enabled = true;
         load();
     }
 
@@ -68,6 +75,8 @@ public class DungeonGenerator : MonoBehaviour
     public void load()
     {
         reset();
+        
+        player.transform.position = new Vector3((float)0.5, (float)0.5, -21);
         int x = 0;
         int y = 0;
         cont.pisoplusplus();
